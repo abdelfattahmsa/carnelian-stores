@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { BrandIcon } from '@/components/ui/brand-icons'
 import { notFound } from 'next/navigation'
 import { Shield, RotateCcw, Truck, Heart } from 'lucide-react'
 import { ProductActions } from '@/components/store/product-actions'
@@ -81,8 +82,9 @@ export default async function ProductPage(props: PageProps<'/products/[slug]'>) 
         <div className="space-y-6">
           {/* Brand + badges */}
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-sm font-medium" style={{ color: brand.color }}>
-              {brand.emoji} {brand.name}
+            <span className="text-sm font-medium flex items-center gap-1.5" style={{ color: brand.color }}>
+              <BrandIcon id={brand.id} size={14} />
+              {brand.name}
             </span>
             <span className="text-[var(--text-muted)]">·</span>
             <span className="text-sm text-[var(--text-muted)]">{product.category}</span>

@@ -1,4 +1,5 @@
 import { TrendingUp, ShoppingCart, Users, Package, ArrowUpRight, ArrowDownRight } from 'lucide-react'
+import { BrandIcon } from '@/components/ui/brand-icons'
 
 export default function AdminDashboard() {
   const stats = [
@@ -41,16 +42,16 @@ export default function AdminDashboard() {
           <h2 className="font-display font-semibold text-[var(--text-primary)] mb-5">Revenue by Brand</h2>
           <div className="space-y-4">
             {[
-              { brand: 'Carnelian Basics', emoji: '🔴', pct: 0, gradient: 'linear-gradient(90deg, #E0A800, #D93025)' },
-              { brand: 'Nerds Assemble', emoji: '🎲', pct: 0, gradient: 'linear-gradient(90deg, #6C63FF, #FF6584)' },
-              { brand: 'Clutch Nation', emoji: '🏎️', pct: 0, gradient: 'linear-gradient(90deg, #FF4D00, #FFB800)' },
-              { brand: 'Field Notes', emoji: '🏔️', pct: 0, gradient: 'linear-gradient(90deg, #2D6A4F, #74C69D)' },
-              { brand: 'The Vault', emoji: '🏺', pct: 0, gradient: 'linear-gradient(90deg, #8B6914, #C9A84C)' },
-            ].map(({ brand, emoji, pct, gradient }) => (
+              { brand: 'Carnelian Basics', id: 'carnelian', color: '#E0A800', pct: 0, gradient: 'linear-gradient(90deg, #E0A800, #D93025)' },
+              { brand: 'Nerds Assemble', id: 'nerds-assemble', color: '#6C63FF', pct: 0, gradient: 'linear-gradient(90deg, #6C63FF, #FF6584)' },
+              { brand: 'Clutch Nation', id: 'clutch-nation', color: '#FF4D00', pct: 0, gradient: 'linear-gradient(90deg, #FF4D00, #FFB800)' },
+              { brand: 'Field Notes', id: 'field-notes', color: '#2D6A4F', pct: 0, gradient: 'linear-gradient(90deg, #2D6A4F, #74C69D)' },
+              { brand: 'The Vault', id: 'the-vault', color: '#8B6914', pct: 0, gradient: 'linear-gradient(90deg, #8B6914, #C9A84C)' },
+            ].map(({ brand, id, color, pct, gradient }) => (
               <div key={brand}>
                 <div className="flex items-center justify-between mb-1.5 text-sm">
                   <span className="flex items-center gap-2 text-[var(--text-secondary)]">
-                    <span>{emoji}</span>{brand}
+                    <BrandIcon id={id} size={14} style={{ color }} />{brand}
                   </span>
                   <span className="text-[var(--text-muted)]">{pct}%</span>
                 </div>

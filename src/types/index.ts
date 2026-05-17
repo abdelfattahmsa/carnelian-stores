@@ -13,7 +13,6 @@ export interface Brand {
   accentColor: string
   gradient: string
   href: string
-  emoji: string
 }
 
 export interface ProductVariant {

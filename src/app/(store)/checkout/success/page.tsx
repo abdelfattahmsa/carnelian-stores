@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { CheckCircle2, Package } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { MailIcon, BoxIcon, TruckIcon } from '@/components/ui/brand-icons'
 
 export default async function CheckoutSuccessPage(props: PageProps<'/checkout/success'>) {
   const searchParams = await props.searchParams
@@ -26,12 +27,12 @@ export default async function CheckoutSuccessPage(props: PageProps<'/checkout/su
 
       <div className="p-5 rounded-2xl bg-[var(--bg-raised)] border border-[var(--bg-border)] mb-8 text-left space-y-3">
         {[
-          { icon: '📧', label: 'Confirmation email', sub: 'Sent to your inbox' },
-          { icon: '📦', label: 'Processing', sub: 'We\'ll ship within 1-3 business days' },
-          { icon: '🚚', label: 'Tracking', sub: 'You\'ll receive a tracking link once shipped' },
+          { icon: <MailIcon size={18} />, label: 'Confirmation email', sub: 'Sent to your inbox' },
+          { icon: <BoxIcon size={18} />, label: 'Processing', sub: "We'll ship within 1-3 business days" },
+          { icon: <TruckIcon size={18} />, label: 'Tracking', sub: "You'll receive a tracking link once shipped" },
         ].map(({ icon, label, sub }) => (
           <div key={label} className="flex items-center gap-3">
-            <span className="text-xl w-8">{icon}</span>
+            <span className="w-8 text-[var(--brand-amber)] flex items-center justify-center">{icon}</span>
             <div>
               <p className="text-sm font-medium text-[var(--text-primary)]">{label}</p>
               <p className="text-xs text-[var(--text-muted)]">{sub}</p>

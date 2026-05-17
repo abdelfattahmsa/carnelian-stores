@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { BRANDS, CATEGORIES } from '@/lib/brands'
+import { BrandIcon } from '@/components/ui/brand-icons'
 import { ProductCard } from '@/components/store/product-card'
 import { CollectionFilters } from '@/components/store/collection-filters'
 import type { SubBrand } from '@/types'
@@ -32,7 +33,7 @@ export default async function CollectionPage(props: PageProps<'/collections/[bra
       {/* Header */}
       <div className="mb-10">
         <div className="flex items-center gap-3 mb-3">
-          <span className="text-4xl">{brandData.emoji}</span>
+          <BrandIcon id={brandData.id} size={36} style={{ color: brandData.color }} />
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-muted)]">
               Collection

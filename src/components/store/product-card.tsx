@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Heart, ShoppingCart } from 'lucide-react'
+import { BrandIcon } from '@/components/ui/brand-icons'
 import { Product } from '@/types'
 import { formatPrice, calculateDiscount } from '@/lib/utils'
 import { getBrand } from '@/lib/brands'
@@ -71,7 +72,7 @@ export function ProductCard({ product, className, onWishlist, isWishlisted }: Pr
       <div className="p-3">
         {/* Brand tag */}
         <div className="flex items-center gap-1 mb-1.5">
-          <span className="text-xs" style={{ color: brand.color }}>{brand.emoji}</span>
+          <BrandIcon id={brand.id} size={12} style={{ color: brand.color }} />
           <span className="text-xs text-[var(--text-muted)] font-medium">{brand.name === 'Carnelian Stores' ? 'Carnelian' : brand.name}</span>
         </div>
 

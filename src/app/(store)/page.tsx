@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, Zap, Shield, RotateCcw, Star } from 'lucide-react'
 import { BRANDS } from '@/lib/brands'
 import { Button } from '@/components/ui/button'
+import { BrandIcon } from '@/components/ui/brand-icons'
 
 export default function HomePage() {
   return (
@@ -75,7 +76,9 @@ export default function HomePage() {
                   style={{ background: brand.gradient }}
                 />
                 <div className="p-6">
-                  <div className="text-4xl mb-4">{brand.emoji}</div>
+                  <div className="mb-4">
+                    <BrandIcon id={brand.id} size={36} style={{ color: brand.color }} />
+                  </div>
                   <h3 className="font-display text-xl font-semibold text-[var(--text-primary)] mb-2">
                     {brand.name}
                   </h3>
@@ -100,7 +103,9 @@ export default function HomePage() {
             >
               <div className="h-2 w-full gradient-carnelian" />
               <div className="p-6">
-                <div className="text-4xl mb-4">🔴</div>
+                <div className="mb-4">
+                  <BrandIcon id="carnelian" size={36} style={{ color: '#E0A800' }} />
+                </div>
                 <h3 className="font-display text-xl font-semibold text-[var(--text-primary)] mb-2">
                   Carnelian Basics
                 </h3>
@@ -144,8 +149,9 @@ export default function HomePage() {
             style={{ background: 'linear-gradient(135deg, #6C63FF22, #FF658422)', border: '1px solid #6C63FF33' }}
           >
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#6C63FF] mb-3">
-                🎲 Nerds Assemble
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#6C63FF] mb-3 flex items-center gap-2">
+                <BrandIcon id="nerds-assemble" size={14} style={{ color: '#6C63FF' }} />
+                Nerds Assemble
               </p>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-4">
                 Gear up. Geek out.
@@ -176,8 +182,9 @@ export default function HomePage() {
             style={{ background: 'linear-gradient(135deg, #FF4D0022, #FFB80022)', border: '1px solid #FF4D0033' }}
           >
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#FF4D00] mb-3">
-                🏎️ Clutch Nation
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#FF4D00] mb-3 flex items-center gap-2">
+                <BrandIcon id="clutch-nation" size={14} style={{ color: '#FF4D00' }} />
+                Clutch Nation
               </p>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-4">
                 Drive the culture.

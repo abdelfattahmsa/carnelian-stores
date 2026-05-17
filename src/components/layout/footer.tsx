@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { BRANDS } from '@/lib/brands'
+import { BrandIcon } from '@/components/ui/brand-icons'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -46,7 +47,7 @@ export function Footer() {
                     href={brand.href}
                     className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-2"
                   >
-                    <span>{brand.emoji}</span>
+                    <BrandIcon id={brand.id} size={14} style={{ color: brand.color }} />
                     {brand.name === 'Carnelian Stores' ? 'All Collections' : brand.name}
                   </Link>
                 </li>

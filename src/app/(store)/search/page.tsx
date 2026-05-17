@@ -1,4 +1,5 @@
 import { Search } from 'lucide-react'
+import { BrandIcon } from '@/components/ui/brand-icons'
 import { BRANDS } from '@/lib/brands'
 import Link from 'next/link'
 
@@ -49,7 +50,9 @@ export default async function SearchPage(props: PageProps<'/search'>) {
                 href={brand.href}
                 className="p-4 rounded-2xl bg-[var(--bg-raised)] border border-[var(--bg-border)] hover:border-[var(--bg-overlay)] text-center transition-all hover:-translate-y-1"
               >
-                <div className="text-3xl mb-2">{brand.emoji}</div>
+                <div className="mb-3 flex justify-center">
+                  <BrandIcon id={brand.id} size={28} style={{ color: brand.color }} />
+                </div>
                 <p className="text-xs font-semibold text-[var(--text-secondary)]">{brand.name}</p>
               </Link>
             ))}

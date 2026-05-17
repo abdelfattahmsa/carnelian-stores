@@ -11,7 +11,6 @@ export const BRANDS: Brand[] = [
     accentColor: '#D93025',
     gradient: 'linear-gradient(135deg, #E0A800, #D93025)',
     href: '/collections/carnelian',
-    emoji: '🔴',
   },
   {
     id: 'nerds-assemble',
@@ -23,7 +22,6 @@ export const BRANDS: Brand[] = [
     accentColor: '#FF6584',
     gradient: 'linear-gradient(135deg, #6C63FF, #FF6584)',
     href: '/collections/nerds-assemble',
-    emoji: '🎲',
   },
   {
     id: 'clutch-nation',
@@ -35,7 +33,6 @@ export const BRANDS: Brand[] = [
     accentColor: '#FFB800',
     gradient: 'linear-gradient(135deg, #FF4D00, #FFB800)',
     href: '/collections/clutch-nation',
-    emoji: '🏎️',
   },
   {
     id: 'field-notes',
@@ -47,7 +44,6 @@ export const BRANDS: Brand[] = [
     accentColor: '#74C69D',
     gradient: 'linear-gradient(135deg, #2D6A4F, #74C69D)',
     href: '/collections/field-notes',
-    emoji: '🏔️',
   },
   {
     id: 'the-vault',
@@ -59,7 +55,6 @@ export const BRANDS: Brand[] = [
     accentColor: '#C9A84C',
     gradient: 'linear-gradient(135deg, #8B6914, #C9A84C)',
     href: '/collections/the-vault',
-    emoji: '🏺',
   },
 ]
 

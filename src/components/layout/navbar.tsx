@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { ShoppingCart, Search, Menu, X, Bell, User } from 'lucide-react'
 import { useAuth, UserButton } from '@clerk/nextjs'
+import { BrandIcon } from '@/components/ui/brand-icons'
 import { useCartStore } from '@/store/cart'
 import { BRANDS } from '@/lib/brands'
 import { Button } from '@/components/ui/button'
@@ -39,13 +40,13 @@ export function Navbar() {
                 key={brand.id}
                 href={brand.href}
                 className={cn(
-                  'px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                  'px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5',
                   pathname.includes(brand.id)
                     ? 'text-[var(--text-primary)] bg-[var(--bg-raised)]'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-raised)]'
                 )}
               >
-                <span className="mr-1.5">{brand.emoji}</span>
+                <BrandIcon id={brand.id} size={14} style={{ color: brand.color }} />
                 {brand.name === 'Carnelian Stores' ? 'All' : brand.name}
               </Link>
             ))}
@@ -129,7 +130,7 @@ export function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="px-3 py-2.5 rounded-lg text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-raised)] transition-colors flex items-center gap-2"
                 >
-                  <span>{brand.emoji}</span>
+                  <BrandIcon id={brand.id} size={14} style={{ color: brand.color }} />
                   {brand.name}
                 </Link>
               ))}

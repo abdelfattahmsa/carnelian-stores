@@ -99,7 +99,7 @@ export default function NewProductPage() {
                 onChange={(e) => setSelectedBrand(e.target.value as SubBrand)}
                 className="w-full h-10 px-3 rounded-xl border border-[var(--bg-border)] bg-[var(--bg-overlay)] text-sm text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-amber)]"
               >
-                {BRANDS.map((b) => <option key={b.id} value={b.id}>{b.emoji} {b.name}</option>)}
+                {BRANDS.map((b) => <option key={b.id} value={b.id}>{b.name}</option>)}
               </select>
             </div>
             <div>
