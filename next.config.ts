@@ -1,7 +1,19 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**.supabase.co' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+    ],
+  },
 
-export default nextConfig;
+  // Turbopack is default in Next.js 16 — no flag needed.
+  // Only add turbopack config if you have custom resolver needs.
+
+  // React Compiler (optional, stable in Next.js 16)
+  // reactCompiler: true,
+}
+
+export default nextConfig
