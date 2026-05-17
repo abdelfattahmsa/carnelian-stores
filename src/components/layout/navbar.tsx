@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { ShoppingCart, Search, Menu, X, Bell, User } from 'lucide-react'
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { useAuth, UserButton } from '@clerk/nextjs'
 import { useCartStore } from '@/store/cart'
 import { BRANDS } from '@/lib/brands'
 import { Button } from '@/components/ui/button'
@@ -14,6 +14,7 @@ export function Navbar() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
+  const { isSignedIn } = useAuth()
   const { itemCount, openCart } = useCartStore()
   const count = itemCount()
 
@@ -60,24 +61,24 @@ export function Navbar() {
               <Search size={20} />
             </button>
 
-            <SignedIn>
-              <Link
-                href="/account/notifications"
-                className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-raised)] transition-colors relative"
-              >
-                <Bell size={20} />
-              </Link>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
-
-            <SignedOut>
+            {isSignedIn ? (
+              <>
+                <Link
+                  href="/account/notifications"
+                  className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-raised)] transition-colors relative"
+                >
+                  <Bell size={20} />
+                </Link>
+                <UserButton />
+              </>
+            ) : (
               <Link href="/sign-in">
                 <Button variant="ghost" size="sm">
                   <User size={16} />
                   <span className="hidden sm:inline">Sign in</span>
                 </Button>
               </Link>
-            </SignedOut>
+            )}
 
             <button
               onClick={() => openCart()}

@@ -1,4 +1,3 @@
-import type { PageProps } from 'next'
 import Link from 'next/link'
 import { CheckCircle2, Package } from 'lucide-react'
 import { Button } from '@/components/ui/button'

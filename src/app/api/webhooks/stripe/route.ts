@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 import { createAdminClient } from '@/lib/supabase/server'
@@ -59,7 +61,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session, supabas
       order_number: generateOrderNumber(),
       user_id: profile.id,
       status: 'payment_received',
-      shipping_address: session.shipping_details ?? {},
+      shipping_address: session.collected_information?.shipping_details ?? {},
       billing_address: session.customer_details ?? {},
       subtotal: session.amount_subtotal ?? 0,
       discount: session.total_details?.amount_discount ?? 0,
@@ -79,8 +81,8 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session, supabas
   // Create order items from line items
   const orderItems = lineItems.data.map((item) => ({
     order_id: order.id,
-    product_id: item.price?.product_data?.metadata?.productId ?? '',
-    variant_id: item.price?.product_data?.metadata?.variantId || null,
+    product_id: (item.price?.metadata as Record<string, string> | undefined)?.productId ?? '',
+    variant_id: (item.price?.metadata as Record<string, string> | undefined)?.variantId || null,
     product_name: item.description ?? '',
     image_url: '',
     quantity: item.quantity ?? 1,

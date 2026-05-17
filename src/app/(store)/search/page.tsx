@@ -1,4 +1,3 @@
-import type { PageProps } from 'next'
 import { Search } from 'lucide-react'
 import { BRANDS } from '@/lib/brands'
 import Link from 'next/link'

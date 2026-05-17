@@ -1,4 +1,3 @@
-import type { PageProps } from 'next'
 import { notFound } from 'next/navigation'
 import { BRANDS, CATEGORIES } from '@/lib/brands'
 import { ProductCard } from '@/components/store/product-card'

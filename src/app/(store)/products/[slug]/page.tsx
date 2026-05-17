@@ -1,4 +1,3 @@
-import type { PageProps } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { Shield, RotateCcw, Truck, Heart } from 'lucide-react'
