@@ -28,6 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html
         lang="en"
         className={`${inter.variable} ${spaceGrotesk.variable} h-full`}
+        data-brand="carnelian-stores"
+        data-theme="dark"
         data-scroll-behavior="smooth"
       >
         <body className="min-h-full flex flex-col antialiased">
