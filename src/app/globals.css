@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@import "@peridot/ui/tokens.css";
-
-@source "../../node_modules/@peridot/ui/dist";
+@import "../styles/tokens.css";
 
 /* ─── Carnelian Stores — Design Tokens ─── */
 :root {
